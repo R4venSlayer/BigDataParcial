@@ -1,0 +1,45 @@
+{
+  "dev": {
+    "app_function": "extraer.main",
+    "profile_name": "default",
+    "project_name": "parcial1-bigdat",
+    "runtime": "python3.9",
+    "aws_region": "us-east-1",
+    "s3_bucket": "khadajhinnnn",
+    "role_name": "LabRole",
+    "manage_roles": false,
+    "apigateway_enabled": false,
+    "keep_warm": false,
+    "events": [
+      {
+        "function": "extraer.main",
+        "expression": "rate(2 minutes)"
+      }
+    ]
+
+  },
+
+  "dev2": {
+    "app_function": "crearCSV.main",
+    "profile_name": "default",
+    "project_name": "parcial1-bigdat",
+    "runtime": "python3.9",
+    "aws_region": "us-east-1",
+    "s3_bucket": "khadajhinnnn-b",
+    "role_name": "LabRole",
+    "manage_roles": false,
+    "apigateway_enabled": false,
+    "keep_warm": false,
+    "events": [
+      {
+        "function": "crearCSV.main",
+        "event_source": {
+          "arn": "arn:aws:s3::khadajhinnnn-b",
+          "events": 
+            "s3:ObjectCreated:*"
+        }
+      }
+    ]
+
+  }
+}
