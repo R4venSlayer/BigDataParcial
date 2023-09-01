@@ -52,15 +52,17 @@ def main():
     mes = fecha_actual.month
     dia = fecha_actual.day
 
-    ruta_objeto = f'headlines/final/year={año}/month={mes:02d}/{año:04d}-{mes:02d}-{dia:02d}.csv'
+    name_file = f'{año:04d}-{mes:02d}-{dia:02d}'
+    ruta_objeto = f'headlines/final/year={año}/month={mes:02d}/'+name_file+'.csv'
 
     s3 = boto3.client('s3')
     # Subir el archivo en memoria a S3
-
+    
     archivo_m = BytesIO(contenido.encode('utf-8'))  
 
     s3.upload_fileobj(archivo_m, 'khadajhinnnn-b', ruta_objeto)
 
     print('Se ha subido correctamente el csv')
+
 
 main()
