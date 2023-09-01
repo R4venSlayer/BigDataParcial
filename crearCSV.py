@@ -13,7 +13,7 @@ def main():
     response = s3.get_object(Bucket=bucket_name, Key=archivo_nombre)
     # Leer el contenido del objeto (archivo)
     contenido = response['Body'].read().decode('utf-8')
-    
+
     soup = BeautifulSoup(contenido, 'html.parser')
 
     for span_etq in soup.find_all('span'):
