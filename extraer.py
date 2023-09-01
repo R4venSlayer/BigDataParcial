@@ -3,16 +3,14 @@ import datetime
 import boto3
 from io import BytesIO
 
-
 def get_response():
     # URL de la página a hacer web scraping
     return urlopen('https://www.eltiempo.com')
-     
-def upload_file(archivo_m,  bucket, archivo):
+
+def upload_file(archivo_m, bucket, archivo):
     s3 = boto3.client('s3')
-    bucket_name = 'khadajhinnnn'
     # Subir el archivo en memoria a S3
-    s3.upload_fileobj(archivo_m, bucket, 'news/raw/'+archivo)
+    s3.upload_fileobj(archivo_m, bucket, 'news/raw/' + archivo)
 
 def name_file():
     # Generamos el nombre del archivo usando la fecha actual
@@ -32,11 +30,13 @@ def main():
         # Crear un objeto de tipo BytesIO para trabajar con el contenido en memoria
         archivo_m = BytesIO(contenido)
 
-        upload_file(archivo_m,'khadajhinnnn',name_file())
+        bucket_name = 'khadajhinnnn'  # Move this line inside the main function
+
+        upload_file(archivo_m, bucket_name, name_file())
 
         print('Web scraping completado. El contenido se ha subido al bucket')
     else:
-        print('Error en la pagina web')
+        print('Error en la página web')
 
-
-main()
+if __name__ == "__main__":
+    main()
