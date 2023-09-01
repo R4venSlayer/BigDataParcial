@@ -30,7 +30,7 @@ def main():
         # Leemos el contenido de la respuesta
         contenido = response.read()
         archivo_m = BytesIO(contenido)
-        bucket_name = 'khadajhinnnn'  
+        bucket_name = 'khadajhinnnn'
         upload_file(archivo_m, bucket_name, name_file())
         print('Web scraping completado. El contenido se ha subido al bucket')
     else:
