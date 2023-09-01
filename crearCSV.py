@@ -30,21 +30,22 @@ def main():
     for c in categoria:
         lst_c.append(c.text)
     for t in titulos:
-        lst_t.append(t.text)  
+        lst_t.append(t.text)
     for e in enlaces:
         lst_e.append('https://eltiempo.com'+e['href'])
 
-    lst = [lst_c,lst_t,lst_e]
+    lst = [lst_c, lst_t, lst_e]
 
-    l = 41
+    longitud = 41
 
-    while len(lst_c) < l:
+    while len(lst_c) < longitud:
         lst_c.append(None)
-    while len(lst_t) < l:
+    while len(lst_t) < longitud:
         lst_t.append(None)
 
     df = pd.DataFrame(lst[1:], columns=lst[0])
-    archivo = df.to_csv(datetime.datetime.now().strftime('%Y-%m-%d')+'.csv', index=False)
+    fecha = datetime.datetime.now().strftime('%Y-%m-%d')
+    df.to_csv(fecha+'.csv', index=False)
     # Obtener la fecha actual
     fecha_actual = datetime.datetime.now()
     año = fecha_actual.year
@@ -56,7 +57,7 @@ def main():
     s3 = boto3.client('s3')
     # Subir el archivo en memoria a S3
 
-    archivo_m = BytesIO(contenido.encode('utf-8'))  # Encoding the string to bytes
+    archivo_m = BytesIO(contenido.encode('utf-8'))  
 
     s3.upload_fileobj(archivo_m, 'khadajhinnnn-b', ruta_objeto)
 
