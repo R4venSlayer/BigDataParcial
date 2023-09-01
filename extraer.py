@@ -36,7 +36,10 @@ def main():
 
         bucket_name = 'khadajhinnnn'  # Move this line inside the main function
 
-        upload_file(archivo_m, bucket_name, name_file())
+        upload_file(archivo_m, 
+                    bucket_name, 
+                    name_file()
+        )
 
         print('Web scraping completado. El contenido se ha subido al bucket')
     else:
