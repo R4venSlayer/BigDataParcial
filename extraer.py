@@ -25,22 +25,16 @@ def name_file():
 def main():
     # Realizamos la solicitud GET a la URL
     response = get_response()
-
     # Verificamos si la solicitud fue exitosa
     if response.status == 200:
         # Leemos el contenido de la respuesta
         contenido = response.read()
-
         # Crear un objeto de tipo BytesIO para trabajar con el contenido en memoria
         archivo_m = BytesIO(contenido)
-
-        bucket_name = 'khadajhinnnn'  # Move this line inside the main function
-
+        bucket_name = 'khadajhinnnn'  
         upload_file(archivo_m, 
                     bucket_name, 
-                    name_file()
-        )
-
+                    name_file())
         print('Web scraping completado. El contenido se ha subido al bucket')
     else:
         print('Error en la página web')
