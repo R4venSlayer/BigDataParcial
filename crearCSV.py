@@ -4,10 +4,12 @@ import pandas as pd
 import datetime
 from io import BytesIO
 
+
 def main():
     s3 = boto3.client('s3')
     bucket_name = 'khadajhinnnn'
-    archivo_nombre = 'news/raw/'+datetime.datetime.now().strftime('%Y-%m-%d')+'.html'
+    ruta = 'news/raw/'
+    archivo_nombre = ruta+datetime.datetime.now().strftime('%Y-%m-%d')+'.html'
     response = s3.get_object(Bucket=bucket_name, Key=archivo_nombre)
     # Leer el contenido del objeto (archivo)
     contenido = response['Body'].read().decode('utf-8')
