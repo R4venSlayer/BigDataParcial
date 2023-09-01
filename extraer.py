@@ -29,12 +29,9 @@ def main():
     if response.status == 200:
         # Leemos el contenido de la respuesta
         contenido = response.read()
-        # Crear un objeto de tipo BytesIO para trabajar con el contenido en memoria
         archivo_m = BytesIO(contenido)
         bucket_name = 'khadajhinnnn'  
-        upload_file(archivo_m, 
-                    bucket_name, 
-                    name_file())
+        upload_file(archivo_m, bucket_name, name_file())
         print('Web scraping completado. El contenido se ha subido al bucket')
     else:
         print('Error en la página web')
