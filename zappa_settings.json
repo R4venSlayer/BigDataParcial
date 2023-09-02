@@ -1,7 +1,8 @@
 {
   "dev": {
     "app_function": "extraer.main",
-    "profile_name": "default",
+    "aws_access_key_id": "AWS_ACCESS_KEY_ID",
+    "aws_secret_access_key": "AWS_SECRET_ACCESS_KEY",
     "project_name": "parcial1-bigdat",
     "runtime": "python3.9",
     "aws_region": "us-east-1",
@@ -21,7 +22,8 @@
 
   "dev2": {
     "app_function": "crearCSV.main",
-    "profile_name": "default",
+    "aws_access_key_id": "AWS_ACCESS_KEY_ID",
+    "aws_secret_access_key": "AWS_SECRET_ACCESS_KEY",
     "project_name": "parcial1-bigdat",
     "runtime": "python3.9",
     "aws_region": "us-east-1",
