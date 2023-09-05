@@ -14,7 +14,7 @@
     "events": [
       {
         "function": "extraer.main",
-        "expression": "rate(2 minutes)"
+        "expression": "rate(1 day)"
       }
     ]
 
