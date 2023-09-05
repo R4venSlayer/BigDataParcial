@@ -60,4 +60,5 @@ jobs:
       - name: Zappa 2
         run: |
           source env/bin/activate
+          zappa deploy dev2
           zappa update dev2
