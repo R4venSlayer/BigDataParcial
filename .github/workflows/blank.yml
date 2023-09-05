@@ -52,8 +52,12 @@ jobs:
             aws-session-token: ${{secrets.AWS_SESSION_TOKEN}}
             aws-region: us-east-1
 
-      - name: Zappa
+      - name: Zappa 1
         run: |
           source env/bin/activate
           zappa update dev
+          
+      - name: Zappa 2
+        run: |
+          source env/bin/activate
           zappa update dev2
